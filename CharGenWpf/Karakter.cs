@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CharGenWpf
 {
-    internal class Karakter: INotifyPropertyChanged
+    public class Karakter: INotifyPropertyChanged
     {
         string név;
         private int asz;
@@ -23,10 +23,12 @@ namespace CharGenWpf
         private int @int;
         private int aE;
         private int ép;
-        public string fp;
+        private int fp;
         private int fp_szint;
         private string fp_szint_kiir;
         private int fp_alap;
+        private int tSz;
+        private bool nagydobás;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -82,7 +84,8 @@ namespace CharGenWpf
             set
             {
                 áK = value;
-                OnPropertyChanged("ÁK");
+                fp = fp_alap + tizfeletti(ÁK) + tizfeletti(AE) + K6(TSz);
+                OnPropertyChanged("ÁK");                                
             }
         }
 
@@ -95,7 +98,8 @@ namespace CharGenWpf
 
             set
             {
-                eg = value;                
+                eg = value;
+                Ép = Ép_alap + tizfeletti(eg);
                 OnPropertyChanged("Eg");
                
                 ;
@@ -140,6 +144,7 @@ namespace CharGenWpf
             set
             {
                 aE = value;
+                fp = fp_alap + tizfeletti(ÁK) + tizfeletti(AE) + K6(TSz);
                 OnPropertyChanged("AE");
             }
         }
@@ -182,7 +187,10 @@ namespace CharGenWpf
             set
             {                
                 fp_szint = value;
+                fp = fp_alap + tizfeletti(ÁK) + tizfeletti(AE) + K6(TSz);
                 Fp_szint_kiir = "K6+" + fp_szint.ToString();
+                OnPropertyChanged("Fp_szint");
+                OnPropertyChanged("Fp");
             }
         }
 
@@ -210,6 +218,7 @@ namespace CharGenWpf
             set
             {
                 fp_alap = value;
+                OnPropertyChanged("Fp_alap");
             }
         }
 
@@ -227,6 +236,49 @@ namespace CharGenWpf
             }
         }
 
+        public int Fp
+        {
+            get
+            {
+                return fp;
+            }
+
+            set
+            {
+                fp = value;
+                OnPropertyChanged("Fp");
+                ;
+            }
+        }
+
+        public int TSz
+        {
+            get
+            {
+                return tSz;
+            }
+
+            set
+            {
+                tSz = value;
+                OnPropertyChanged("TSz");
+            }
+        }
+
+        public bool Nagydobás
+        {
+            get
+            {
+                return nagydobás;
+            }
+
+            set
+            {
+                nagydobás = value;
+                OnPropertyChanged("Nagydobás");
+            }
+        }
+
         public void Recalculate()
         {
             
@@ -234,6 +286,27 @@ namespace CharGenWpf
            // this.Ép_max_label.Content = karakter.Ép.ToString();
         }
 
+        public int K6(int szint)
+        {
+            Random random = new Random();
+            
+            int k6=0;
+            if (nagydobás == true)
+            {
+                for (int i = 0; i < szint; i++)
+                {
+                    k6 += random.Next(1, 3) + 4 + fp_szint;
+                }
+            }
+            else
+            {
+                for (int i = 0; i < szint; i++)
+                {
+                    k6 += random.Next(1, 7) + fp_szint;
+                }
+            }
+            return k6;
+        }
         
 
 
@@ -247,10 +320,17 @@ namespace CharGenWpf
                 handler(this, new PropertyChangedEventArgs(name));
             }
         }
-
+        public int tizfeletti(int érték)
+        {
+            if (érték > 10)
+            {
+                return érték - 10;
+            }
+            else return 0;
+        }
         public Karakter()
         {
-
+            //Nagydobás = true;
         }
     }//class
 }

@@ -30,9 +30,11 @@ namespace CharGenWpf
 
         public MainWindow()
         {
-            InitializeComponent();
+            InitializeComponent();            
             kasztok = new List<Kaszt>();
             fajok = new List<Faj>();
+            karakter = new Karakter();
+            karakter.TSz = 1;
             Load_All_Class();
             Load_All_Races();            
             ;
@@ -301,7 +303,7 @@ namespace CharGenWpf
             karakter.AE += fajok[comboBox2.SelectedIndex].Ae;
             karakter.Asz += fajok[comboBox2.SelectedIndex].Asz;
 
-            
+            /*
             Erő_box.Text = karakter.Er.ToString();
             ÁK_box.Text = karakter.ÁK.ToString();
             Gy_box.Text = karakter.Gy.ToString();
@@ -313,6 +315,7 @@ namespace CharGenWpf
             Asz_box.Text = karakter.Asz.ToString();
             Ép_alap_label.Content = karakter.Ép_alap;
             Ép_max_label.Content = karakter.Ép;
+            */
         }
 
         int szam;
@@ -406,7 +409,8 @@ namespace CharGenWpf
             ae_kf_button.IsEnabled = false;
             asz_kf_button.IsEnabled = false;
 
-            karakter = new Karakter();
+            //karakter = new Karakter();
+            this.DataContext = karakter;
             karakter.Er = Kocka(kasztok[comboBox1.SelectedIndex].Erő);
             karakter.Gy = Kocka(kasztok[comboBox1.SelectedIndex].Gyorsaság);
             karakter.Ü = Kocka(kasztok[comboBox1.SelectedIndex].Ügyesség);
@@ -422,7 +426,7 @@ namespace CharGenWpf
 
             //this.Fp_alap_label.Content = karakter.Fp_alap.ToString();
             //this.Ép_alap_label.Content = karakter.Ép_alap.ToString();
-            karakter.Ép = karakter.Ép_alap + tizfeletti(karakter.Eg);
+            //karakter.Ép = karakter.Ép_alap + tizfeletti(karakter.Eg);
             //this.Ép_max_label.Content = karakter.Ép.ToString();
             //recalculate();
             check_kf();

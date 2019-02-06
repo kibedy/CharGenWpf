@@ -10,20 +10,21 @@
     <Window.Resources>
         <local:MyConverter x:Key="MyConverter" />
     </Window.Resources>
+
     <Grid Margin="0,0,2,0">
         <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" Margin="60,59,0,0" VerticalAlignment="Top" Width="120"/>
         <ComboBox x:Name="comboBox2" HorizontalAlignment="Left" Margin="60,118,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="TSZ_box" HorizontalAlignment="Left" Height="23" Margin="60,200,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="27"/>
-        <TextBox x:Name="Erő_box" HorizontalAlignment="Left" Height="23" Margin="350,28,0,0" TextWrapping="Wrap" Text="{Binding Path=Karakter.Er}" VerticalAlignment="Top" Width="50"/>
-        <TextBox x:Name="Ü_box" HorizontalAlignment="Left" Height="23" Margin="350,94,0,0" TextWrapping="Wrap" Text="{Binding Path=Karakter.Ü}" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.645,-1.06"/>
-        <TextBox x:Name="Gy_box" HorizontalAlignment="Left" Height="23" Margin="350,60,0,0" TextWrapping="Wrap" Text="{Binding Path=Karakter.Gy}" VerticalAlignment="Top" Width="50"/>
-        <TextBox x:Name="ÁK_box" HorizontalAlignment="Left" Height="24" Margin="350,127,0,0" TextWrapping="Wrap" Text="{Binding Path=Karakter.ÁK}" VerticalAlignment="Top" Width="50"/>
-        <TextBox x:Name="Sz_box" HorizontalAlignment="Left" Height="24" Margin="350,193,0,0" TextWrapping="Wrap" Text="{Binding Path=Karakter.Sz}" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.645,-1.06"/>
-        <TextBox x:Name="Eg_box" HorizontalAlignment="Left" Height="24" Margin="350,159,0,0" TextWrapping="Wrap" Text="{Binding Path=Karakter.Eg, Mode=TwoWay}" VerticalAlignment="Top" Width="50"/>
-        <TextBox x:Name="Int_box" HorizontalAlignment="Left" Height="23" Margin="350,226,0,0" TextWrapping="Wrap" Text="{Binding Path=Karakter.Int}" VerticalAlignment="Top" Width="50"/>
-        <TextBox x:Name="Asz_box" HorizontalAlignment="Left" Height="23" Margin="350,292,0,0" TextWrapping="Wrap" Text="{Binding Path=Karakter.Asz}" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.645,-1.06"/>
-        <TextBox x:Name="AE_box" HorizontalAlignment="Left" Height="23" Margin="350,258,0,0" TextWrapping="Wrap" Text="{Binding Path=Karakter.AE}" VerticalAlignment="Top" Width="50"/>
-        
+        <TextBox x:Name="TSZ_box" HorizontalAlignment="Left" Height="23" Margin="60,200,0,0" TextWrapping="Wrap" Text="{Binding TSz}" VerticalAlignment="Top" Width="27"/>
+        <TextBox x:Name="Erő_box" HorizontalAlignment="Left" Height="23" Margin="350,28,0,0" TextWrapping="Wrap" Text="{Binding Er, Mode=TwoWay}" VerticalAlignment="Top" Width="50"/>
+        <TextBox x:Name="Ü_box" HorizontalAlignment="Left" Height="23" Margin="350,94,0,0" TextWrapping="Wrap" Text="{Binding Ü, Mode=TwoWay}" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.645,-1.06"/>
+        <TextBox x:Name="Gy_box" HorizontalAlignment="Left" Height="23" Margin="350,60,0,0" TextWrapping="Wrap" Text="{Binding Gy, Mode=TwoWay}" VerticalAlignment="Top" Width="50"/>
+        <TextBox x:Name="ÁK_box" HorizontalAlignment="Left" Height="24" Margin="350,127,0,0" TextWrapping="Wrap" Text="{Binding ÁK, Mode=TwoWay}" VerticalAlignment="Top" Width="50"/>
+        <TextBox x:Name="Sz_box" HorizontalAlignment="Left" Height="24" Margin="350,193,0,0" TextWrapping="Wrap" Text="{Binding Sz, Mode=TwoWay}" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.645,-1.06"/>
+        <TextBox x:Name="Eg_box" HorizontalAlignment="Left" Height="24" Margin="350,159,0,0" TextWrapping="Wrap" Text="{Binding Eg, Mode=TwoWay}" VerticalAlignment="Top" Width="50"/>
+        <TextBox x:Name="Int_box" HorizontalAlignment="Left" Height="23" Margin="350,226,0,0" TextWrapping="Wrap" Text="{Binding Int}" VerticalAlignment="Top" Width="50"/>
+        <TextBox x:Name="Asz_box" HorizontalAlignment="Left" Height="23" Margin="350,292,0,0" TextWrapping="Wrap" Text="{Binding Asz}" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.645,-1.06"/>
+        <TextBox x:Name="AE_box" HorizontalAlignment="Left" Height="23" Margin="350,258,0,0" TextWrapping="Wrap" Text="{Binding AE}" VerticalAlignment="Top" Width="50"/>
+
         <Label Content="Kasztok" HorizontalAlignment="Left" Margin="60,28,0,0" VerticalAlignment="Top"/>
         <Label Content="Fajok" HorizontalAlignment="Left" Margin="60,89,0,0" VerticalAlignment="Top"/>
         <Label Content="Tapasztalati szint" HorizontalAlignment="Left" Margin="60,169,0,0" VerticalAlignment="Top"/>
@@ -50,9 +51,7 @@
         <Label Content="Fp max" HorizontalAlignment="Left" Margin="453,97,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,-0.346" Width="81"/>
         <Label Content="Ép alap" HorizontalAlignment="Left" Margin="453,128,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,-0.346" Width="81"/>
         <Label Content="Ép max" HorizontalAlignment="Left" Margin="453,163,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,-0.346" Width="81"/>
-        <Label x:Name="Fp_alap_label" Content="?" HorizontalAlignment="Left" Margin="525,28,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,-0.346" Width="60"/>
-        <Label x:Name="Fp_szint_label" Content="{Binding Path=Karakter.Fp_szint_kiir}" HorizontalAlignment="Left" Margin="525,63,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,-0.346" Width="65"/>
-        <Label x:Name="Fp_max" Content="?" HorizontalAlignment="Left" Margin="525,97,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,-0.346" Width="60"/>
+        <Label x:Name="Fp_max" Content="{Binding Fp, Mode=OneWay}" HorizontalAlignment="Left" Margin="525,94,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,-0.346" Width="60" Height="26"/>
         <Label Content="Ké alap" HorizontalAlignment="Left" Margin="590,27,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,-0.346" Width="60"/>
         <Label Content="TÉ alap" HorizontalAlignment="Left" Margin="590,62,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,-0.346" Width="60"/>
         <Label Content="VÉ alap" HorizontalAlignment="Left" Margin="590,96,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,-0.346" Width="60"/>
@@ -67,7 +66,7 @@
         <Label x:Name="HMeloszt_label" Content="?" HorizontalAlignment="Left" Margin="687,197,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,-0.346" Width="60"/>
         <Button x:Name="button1" Content="Generálás" HorizontalAlignment="Left" Margin="60,315,0,0" VerticalAlignment="Top" Width="75" Click="Button1_Click_1"/>
         <Button Content="Tovább &gt;&gt;" HorizontalAlignment="Left" Margin="647,320,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="7.973,1"/>
-        <CheckBox Content="FP/szintnél jó (5 vagy 6) dobások?" HorizontalAlignment="Left" Margin="60,357,0,0" VerticalAlignment="Top" Width="211"/>
+        <CheckBox x:Name="nagydobás_checkbox" IsChecked="{Binding Nagydobás}" Content="FP/szintnél jó (5 vagy 6) dobások?" HorizontalAlignment="Left" Margin="60,357,0,0" VerticalAlignment="Top" Width="211"/>
         <Label Content="?" HorizontalAlignment="Left" Margin="788,28,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,-0.346" Width="31"/>
         <Label Content="?" HorizontalAlignment="Left" Margin="788,63,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,-0.346" Width="31"/>
         <Label Content="?" HorizontalAlignment="Left" Margin="788,97,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,-0.346" Width="31"/>
@@ -89,7 +88,9 @@
         <Button x:Name="Int_kf_button" Content="+kf" HorizontalAlignment="Left" Margin="414,228,0,0" VerticalAlignment="Top" Width="39"/>
         <Button x:Name="ae_kf_button" Content="+kf" HorizontalAlignment="Left" Margin="414,261,0,0" VerticalAlignment="Top" Width="39"/>
         <Button x:Name="asz_kf_button" Content="+kf" HorizontalAlignment="Left" Margin="414,295,0,0" VerticalAlignment="Top" Width="39"/>
-        <Label x:Name="Ép_alap_label" Content="{Binding Path=Karakter.Ép_alap, Converter={StaticResource MyConverter}, Mode=OneWay}" HorizontalAlignment="Left" Margin="525,129,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.132,-0.192" Height="25" Width="38"/>
-        <Label x:Name="Ép_max_label" Content="{Binding Path=Karakter.Ép, Converter={StaticResource MyConverter}, Mode=OneWay}" HorizontalAlignment="Left" Margin="525,163,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,-0.346" Width="60" Height="26"/>
+        <Label x:Name="Ép_alap_label" Content="{Binding Ép_alap,Mode=OneWay}" HorizontalAlignment="Left" Margin="525,129,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.132,-0.192" Height="25" Width="38"/>
+        <Label x:Name="Ép_max_label" Content="{Binding Ép, Mode=OneWay}" HorizontalAlignment="Left" Margin="525,163,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,-0.346" Width="60" Height="26"/>
+        <Label x:Name="Fp_alap_label" Content="{Binding Fp_alap,Mode=OneWay}" HorizontalAlignment="Left" Margin="525,28,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,-0.346" Width="60" Height="29"/>
+        <Label x:Name="Fp_szint_label" Content="{Binding Fp_szint_kiir}" HorizontalAlignment="Left" Margin="525,63,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,-0.346" Width="65" Height="23"/>
     </Grid>
 </Controls:MetroWindow>
