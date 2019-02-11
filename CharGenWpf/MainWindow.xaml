@@ -14,7 +14,7 @@
     <Grid Margin="0,0,2,0">
         <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" Margin="60,59,0,0" VerticalAlignment="Top" Width="120"/>
         <ComboBox x:Name="comboBox2" HorizontalAlignment="Left" Margin="60,118,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="TSZ_box" HorizontalAlignment="Left" Height="23" Margin="60,200,0,0" TextWrapping="Wrap" Text="{Binding TSz}" VerticalAlignment="Top" Width="27"/>
+        <TextBox x:Name="TSZ_box" HorizontalAlignment="Left" Height="23" Margin="60,200,0,0" TextWrapping="Wrap" Text="{Binding TSz, Mode=TwoWay}" VerticalAlignment="Top" Width="27"/>
         <TextBox x:Name="Erő_box" HorizontalAlignment="Left" Height="23" Margin="350,28,0,0" TextWrapping="Wrap" Text="{Binding Er, Mode=TwoWay}" VerticalAlignment="Top" Width="50"/>
         <TextBox x:Name="Ü_box" HorizontalAlignment="Left" Height="23" Margin="350,94,0,0" TextWrapping="Wrap" Text="{Binding Ü, Mode=TwoWay}" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.645,-1.06"/>
         <TextBox x:Name="Gy_box" HorizontalAlignment="Left" Height="23" Margin="350,60,0,0" TextWrapping="Wrap" Text="{Binding Gy, Mode=TwoWay}" VerticalAlignment="Top" Width="50"/>
@@ -58,19 +58,19 @@
         <Label Content="CÉ alap" HorizontalAlignment="Left" Margin="590,127,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,-0.346" Width="60"/>
         <Label Content="HM/szint" HorizontalAlignment="Left" Margin="590,162,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,-0.346" Width="60"/>
         <Label Content="HM elosztható" HorizontalAlignment="Left" Margin="590,196,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,-0.346" Width="92"/>
-        <Label x:Name="KÉalap" Content="?" HorizontalAlignment="Left" Margin="687,28,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,-0.346" Width="60"/>
-        <Label x:Name="TÉalap" Content="?" HorizontalAlignment="Left" Margin="687,63,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,-0.346" Width="60"/>
-        <Label x:Name="VÉalap" Content="?" HorizontalAlignment="Left" Margin="687,97,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,-0.346" Width="60"/>
-        <Label x:Name="CÉalap" Content="?" HorizontalAlignment="Left" Margin="687,128,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,-0.346" Width="60"/>
-        <Label x:Name="HMszint_label" Content="?" HorizontalAlignment="Left" Margin="687,163,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,-0.346" Width="60"/>
-        <Label x:Name="HMeloszt_label" Content="?" HorizontalAlignment="Left" Margin="687,197,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,-0.346" Width="60"/>
+        <Label x:Name="KÉalap" Content="{Binding KÉ_alap}" HorizontalAlignment="Left" Margin="687,28,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,-0.346" Width="60"/>
+        <Label x:Name="TÉalap" Content="{Binding TÉ_alap}" HorizontalAlignment="Left" Margin="687,63,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,-0.346" Width="60"/>
+        <Label x:Name="VÉalap" Content="{Binding VÉ_alap}" HorizontalAlignment="Left" Margin="687,97,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,-0.346" Width="60"/>
+        <Label x:Name="CÉalap" Content="{Binding CÉ_alap}" HorizontalAlignment="Left" Margin="687,128,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,-0.346" Width="60"/>
+        <Label x:Name="HMszint_label" Content="{Binding HM_kiir}" HorizontalAlignment="Left" Margin="687,163,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,-0.346" Width="60"/>
+        <Label x:Name="HMeloszt_label" Content="{Binding HM_osztani}" HorizontalAlignment="Left" Margin="687,197,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,-0.346" Width="60"/>
         <Button x:Name="button1" Content="Generálás" HorizontalAlignment="Left" Margin="60,315,0,0" VerticalAlignment="Top" Width="75" Click="Button1_Click_1"/>
         <Button Content="Tovább &gt;&gt;" HorizontalAlignment="Left" Margin="647,320,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="7.973,1"/>
         <CheckBox x:Name="nagydobás_checkbox" IsChecked="{Binding Nagydobás}" Content="FP/szintnél jó (5 vagy 6) dobások?" HorizontalAlignment="Left" Margin="60,357,0,0" VerticalAlignment="Top" Width="211"/>
-        <Label Content="?" HorizontalAlignment="Left" Margin="788,28,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,-0.346" Width="31"/>
-        <Label Content="?" HorizontalAlignment="Left" Margin="788,63,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,-0.346" Width="31"/>
-        <Label Content="?" HorizontalAlignment="Left" Margin="788,97,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,-0.346" Width="31"/>
-        <Label Content="?" HorizontalAlignment="Left" Margin="788,128,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,-0.346" Width="31"/>
+        <Label Content="{Binding KÉ}" HorizontalAlignment="Left" Margin="788,28,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,-0.346" Width="31"/>
+        <Label Content="{Binding TÉ}" HorizontalAlignment="Left" Margin="788,63,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,-0.346" Width="31"/>
+        <Label Content="{Binding VÉ}" HorizontalAlignment="Left" Margin="788,97,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,-0.346" Width="31"/>
+        <Label Content="{Binding CÉ}" HorizontalAlignment="Left" Margin="788,128,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,-0.346" Width="31"/>
         <Button Content="-" HorizontalAlignment="Left" Margin="752,31,0,0" VerticalAlignment="Top" Width="24"/>
         <Button Content="-" HorizontalAlignment="Left" Margin="752,66,0,0" VerticalAlignment="Top" Width="24"/>
         <Button Content="-" HorizontalAlignment="Left" Margin="752,96,0,0" VerticalAlignment="Top" Width="24"/>

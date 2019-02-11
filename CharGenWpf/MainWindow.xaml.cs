@@ -423,6 +423,21 @@ namespace CharGenWpf
             karakter.Fp_alap = kasztok[comboBox1.SelectedIndex].fp_a;
             karakter.Ép_alap = kasztok[comboBox1.SelectedIndex].ép_alap;
             karakter.Fp_szint = kasztok[comboBox1.SelectedIndex].fp_sz;
+            karakter.HM_sz = kasztok[comboBox1.SelectedIndex].hm_sz;
+            karakter.HM_köt = kasztok[comboBox1.SelectedIndex].hm_köt;
+            karakter.HM_osztani = karakter.TSz * (karakter.HM_sz - 2 * karakter.HM_köt);
+            karakter.TÉ_alap = kasztok[comboBox1.SelectedIndex].té;
+            karakter.KÉ_alap = kasztok[comboBox1.SelectedIndex].ké;
+            karakter.VÉ_alap = kasztok[comboBox1.SelectedIndex].vé;
+            karakter.CÉ_alap = kasztok[comboBox1.SelectedIndex].cé;
+            //karakter.TÉ = kasztok[comboBox1.SelectedIndex].té;
+            //karakter.KÉ = kasztok[comboBox1.SelectedIndex].ké;
+            //karakter.VÉ = kasztok[comboBox1.SelectedIndex].vé;
+            //karakter.CÉ = kasztok[comboBox1.SelectedIndex].cé;
+            karakter.KÉ = karakter.KÉ_alap + tizfeletti(karakter.Ü) + tizfeletti(karakter.Gy);
+            karakter.TÉ = karakter.TÉ_alap + tizfeletti(karakter.Ü) + tizfeletti(karakter.Gy) + tizfeletti(karakter.Er) + karakter.TSz * karakter.HM_köt;
+            karakter.VÉ = karakter.VÉ_alap + tizfeletti(karakter.Ü) + tizfeletti(karakter.Gy) + karakter.TSz * karakter.HM_köt;
+            karakter.CÉ = karakter.CÉ_alap + tizfeletti(karakter.Ü);
 
             //this.Fp_alap_label.Content = karakter.Fp_alap.ToString();
             //this.Ép_alap_label.Content = karakter.Ép_alap.ToString();
